@@ -29,12 +29,6 @@ def create():
         return redirect(url_for('routes.index'))
 
 
-@routes_bp.route('/read/<Id>')
-def read_by_id(Id):
-    if request.method == 'GET':
-        return read_user(Id)
-
-
 # Update User
 @routes_bp.route('/update', methods=['GET', 'POST'])
 def update():
