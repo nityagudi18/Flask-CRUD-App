@@ -14,29 +14,29 @@ The end user of this application should be able to
 ### User Interface
 CRUD operations can be carried out with help of GUI and command line
 
-####Running the Application
+#### Running the Application
 - python App.py
 
-####GUI
+#### GUI
 The Application GUI can be accessed at 127.0.0.1:5000 after executing ```python App.py```
 
 
 ![127.0.0.1:5000](home.PNG)
 
 
-#####Create User
+##### Create User
 On clicking 'Add User' Button ,we use a pop up form to Input user fields like Id, Name, Age, Occupation, Email and Phone. 
 On submit the user is refected on the user list on home page. In the backend the user is  written to the JSON file 
 and displayed on the home page
 
-#####Read 
+##### Read 
 All the users are read from the backend json file and displayed in the user list on home page
 
-#####Update Users
+##### Update Users
 On clicking ' Edit' button next to each user ,we use a pop up form to edit the user details and it is updated in the 
 backend JSON file on submit. The updates made are refected in the user list on home page
 
-#####Delete Users
+##### Delete Users
 There is a button provided on the GUI to delete the user from the JSON user file. A confirmation pop up is displayed
 
 ##### Notes
