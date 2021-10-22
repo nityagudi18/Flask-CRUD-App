@@ -86,4 +86,3 @@ All the CRUD operations can be carried out by command line as well.
 ``` On Server - 127.0.0.1 - - [22/Oct/2021 13:16:33] "GET /cmd/delete/1 HTTP/1.1" 200 -```
 ``` On Terminal - User Deleted```
 
-#### Directory Structure
