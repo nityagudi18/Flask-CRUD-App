@@ -28,6 +28,7 @@ def update(Id):
         update_json(Id, data)
         return "User Updated"
 
+
 # Delete User
 @cmd_routes_bp.route('/delete/<Id>', methods=['GET', 'POST'])
 def delete(Id):
