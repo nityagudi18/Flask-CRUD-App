@@ -10,6 +10,7 @@ The end user of this application should be able to
 - Python 3.9.1
 - Flask 1.1.2
 - Werkzeug 1.0.1
+- pyjwt-2.3.0
 
 ### User Interface
 CRUD operations can be carried out with help of GUI and command line

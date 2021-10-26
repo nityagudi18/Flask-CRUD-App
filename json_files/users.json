@@ -1,18 +1,12 @@
-[
-    {
-        "Id": "2",
-        "Name": "Second User",
-        "Age": "31",
-        "Occupation": "Designer",
-        "Email": "second@second.com",
-        "Phone": "0987654320"
-    },
-    {
-        "Id": "3",
-        "Name": "Third User",
-        "Age": "33",
-        "Occupation": "Business",
-        "Email": "thrd@thrd",
-        "Phone": "123456"
-    }
-]
+{
+    "users": [
+        {
+            "Id": "1",
+            "Name": "First user",
+            "Age": "31",
+            "Occupation": "Lawyer",
+            "Email": "nityagudi18@gmail.com",
+            "Phone": "4321"
+        }
+    ]
+}

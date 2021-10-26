@@ -1,0 +1,10 @@
+{
+ "db_users": [
+  {
+   "id": "1",
+   "username": "nitya.gudi",
+   "password": "mysecret"
+  }
+ ]
+
+}

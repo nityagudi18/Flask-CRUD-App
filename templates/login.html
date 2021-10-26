@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+
+<h2 align="center"> Login </h2>
+<form action="" method="post">
+    <div class="container">
+        <div class="form-group">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter username" class="form-control" name="username" required>
+            <label><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" class="form-control" name="password" required>
+            <br>
+            <button class="btn btn-primary" type="submit">Login</button>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}
