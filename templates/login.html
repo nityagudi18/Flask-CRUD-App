@@ -5,19 +5,78 @@
 
 {% block body %}
 
-<h2 align="center"> Login </h2>
-<form action="" method="post">
-    <div class="container">
-        <div class="form-group">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter username" class="form-control" name="username" required>
-            <label><b>Password</b></label>
-            <input type="text" placeholder="Enter Password" class="form-control" name="password" required>
-            <br>
-            <button class="btn btn-primary" type="submit">Login</button>
+<div class="container">
+    <h2 align="center"> Login </h2>
+    <form action="{{url_for('authentication.signin')}}" method="post">
+        <div class="container">
+            <div class="form-group">
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter username" class="form-control" name="username" required>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" class="form-control" name="password" required>
+                <br>
+                <button class="btn btn-primary" type="submit">Login</button>
+                <hr>
+                <p>Not a registered user?</p>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#mysignup">Sign Up</button>
 
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+
+
+    <div id="mysignup" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">Register</h4>
+             </div>
+             <div class="modal-body">
+                 <form action="{{url_for('authentication.signup')}}" method="POST">
+
+                     <div class="form-group">
+                         <label>Username</label>
+                         <input type="text" class="form-control" name="username" required="1">
+                     </div>
+
+                     <div class="form-group">
+                         <label>Password
+                         <input type="password" class="form-control" id="password" name="password" required="1">
+                         </label>
+                     </div>
+
+                     <div class="form-group">
+                         <label>Re-enter Password
+                         <input type="password" class="form-control" id="confirmpass" name="confirmpass" onkeyup="check()" required="1">
+                         <span id='message'></span>
+                         </label>
+
+                     </div>
+                     <div class="form-group">
+                         <button class="btn btn-primary" id="submit" type="submit">Sign Me Up</button>
+                     </div>
+                         <script>
+                         function check() {
+                         if (document.getElementById('password').value ==document.getElementById('confirmpass').value) {
+                         document.getElementById('message').style.color = 'green';
+                         document.getElementById('message').innerHTML = 'matching';
+                         $('#submit').prop('disabled', false);
+                         } else {
+                         document.getElementById('message').style.color = 'red';
+                         document.getElementById('message').innerHTML = 'not matching';
+                         $('#submit').prop('disabled', true);
+                         }
+                         }
+                     </script>
+<!--                     </div>-->
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
 
 {% endblock %}

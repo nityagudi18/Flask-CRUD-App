@@ -2,11 +2,19 @@
     "users": [
         {
             "Id": "1",
-            "Name": "First user",
+            "Name": "First User",
             "Age": "31",
-            "Occupation": "Lawyer",
+            "Occupation": "Engineer",
+            "Email": "first@first",
+            "Phone": "4088160593"
+        },
+        {
+            "Id": "2",
+            "Name": "new user",
+            "Age": "32",
+            "Occupation": "designer",
             "Email": "nityagudi18@gmail.com",
-            "Phone": "4321"
+            "Phone": "7406591911"
         }
     ]
 }

@@ -7,12 +7,12 @@ from authentication import auth_bp
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'crudsecret'
+db_path = 'database/userstore.db'
 
 # Register Blueprints
-
 app.register_blueprint(routes_bp, url_prefix='/')
 app.register_blueprint(cmd_routes_bp, url_prefix='/cmd')
-app.register_blueprint(auth_bp, url_prefix='/login')
+app.register_blueprint(auth_bp, url_prefix='/auth')
 
 
 if __name__ == '__main__':

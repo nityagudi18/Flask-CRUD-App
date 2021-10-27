@@ -4,8 +4,14 @@ from json_files.operations import *
 routes_bp = Blueprint('routes', __name__)
 
 
-# Home Page, Read all users
+# Home Page
 @routes_bp.route('/')
+def login():
+    return render_template('login.html')
+
+
+# Read all users
+@routes_bp.route('/home')
 def index():
     user_data = read_all()
     return render_template('index.html', users=user_data)
@@ -48,6 +54,6 @@ def update():
 # Delete User
 @routes_bp.route('/delete/<Id>', methods=['GET', 'POST'])
 def delete(Id):
-    if request.method == 'GET':
+    if request.method == 'GET' or request.method =='POST':
         delete_record(Id)
         return redirect(url_for('routes.index'))
