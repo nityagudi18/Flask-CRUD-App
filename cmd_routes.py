@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, redirect, url_for
 from json_files.operations import *
-from authentication import token_required
+from auth_cmd import cmd_token_required
 
 cmd_routes_bp = Blueprint('cmd_routes', __name__)
 
@@ -16,7 +16,7 @@ def create_by_id():
 
 # Read User
 @cmd_routes_bp.route('/read/<Id>')
-@token_required
+@cmd_token_required
 def read_by_id(Id):
     if request.method == 'GET':
         return read_user(Id)
@@ -24,7 +24,7 @@ def read_by_id(Id):
 
 # Update User
 @cmd_routes_bp.route('/update/<Id>', methods=['GET', 'POST'])
-@token_required
+@cmd_token_required
 def update(Id):
     if request.method == 'POST':
         data = request.get_json()
@@ -34,7 +34,7 @@ def update(Id):
 
 # Delete User
 @cmd_routes_bp.route('/delete/<Id>', methods=['GET', 'POST'])
-@token_required
+@cmd_token_required
 def delete(Id):
     if request.method == 'GET':
         delete_record(Id)

@@ -1,5 +1,6 @@
 from flask import Blueprint, request, render_template, redirect, url_for
 from json_files.operations import *
+from authentication import token_required
 
 routes_bp = Blueprint('routes', __name__)
 
@@ -12,9 +13,11 @@ def login():
 
 # Read all users
 @routes_bp.route('/home')
+@token_required
 def index():
+    token = request.args.get('token')
     user_data = read_all()
-    return render_template('index.html', users=user_data)
+    return render_template('index.html', users=user_data, token=token)
 
 
 # Create New User
@@ -37,6 +40,7 @@ def create():
 
 # Update User
 @routes_bp.route('/update', methods=['GET', 'POST'])
+@token_required
 def update():
     if request.method == 'POST':
         Id = request.form['Id']
@@ -53,6 +57,7 @@ def update():
 
 # Delete User
 @routes_bp.route('/delete/<Id>', methods=['GET', 'POST'])
+@token_required
 def delete(Id):
     if request.method == 'GET' or request.method =='POST':
         delete_record(Id)

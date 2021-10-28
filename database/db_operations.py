@@ -37,3 +37,4 @@ def delete_records():
     cur.execute("""DELETE FROM USERS WHERE ID=3""")
     conn.commit()
     cur.close()
+

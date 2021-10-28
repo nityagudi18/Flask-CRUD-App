@@ -3,18 +3,26 @@
         {
             "Id": "1",
             "Name": "First User",
-            "Age": "31",
+            "Age": "36",
             "Occupation": "Engineer",
-            "Email": "first@first",
-            "Phone": "4088160593"
+            "Email": "first@first.com",
+            "Phone": "408"
         },
         {
             "Id": "2",
-            "Name": "new user",
+            "Name": "Second User",
             "Age": "32",
-            "Occupation": "designer",
-            "Email": "nityagudi18@gmail.com",
-            "Phone": "7406591911"
+            "Occupation": "Doctor",
+            "Email": "second@second.com",
+            "Phone": "123"
+        },
+        {
+            "Id": "3",
+            "Name": "Third User",
+            "Age": "33",
+            "Occupation": "Business",
+            "Email": "third@third.com",
+            "Phone": "3333"
         }
     ]
 }
