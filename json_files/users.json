@@ -18,11 +18,11 @@
         },
         {
             "Id": "3",
-            "Name": "Third User",
+            "Name": "Third test user",
             "Age": "33",
-            "Occupation": "Business",
-            "Email": "third@third.com",
-            "Phone": "3333"
+            "Occupation": "Artist",
+            "Email": "third@third",
+            "Phone": "33333"
         }
     ]
 }

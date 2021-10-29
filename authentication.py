@@ -4,7 +4,6 @@ from functools import wraps
 from database.db_operations import *
 import jwt
 import datetime
-import json
 
 auth_bp = Blueprint('authentication', __name__)
 
@@ -12,6 +11,7 @@ auth_bp = Blueprint('authentication', __name__)
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
+        # Token passed as session header
         token = session['api_session_token']
         if 'x-access-token' in request.headers:
             token = request.headers['x-access-token']
@@ -20,6 +20,7 @@ def token_required(f):
             return jsonify({'message': 'Token is missing!'}), 403
 
         try:
+            # Decode JWT to authorize user, 'username' used as JWT secret
             data = jwt.decode(token, session['username'], algorithms=["HS256"])
             current_user = data['user']
             if not current_user:
@@ -41,8 +42,12 @@ def signin():
         sql = f"""SELECT * FROM USERS WHERE USERNAME ='{entered_username}'"""
         data = read_records(sql)
         user_password = data[0][2]
+        # Authenticate user login with the hashed password in database
         if check_password_hash(user_password, entered_password):
+
+            # Generate token if log in successful
             token = jwt.encode({'user': entered_username, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, entered_username, "HS256")
+            # Store token in session
             session['api_session_token'] = token
             return redirect(url_for('routes.index'))
         return redirect(url_for('routes.login'))
@@ -61,5 +66,6 @@ def signup():
 @auth_bp.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'GET':
+        # Remove user from session
         session.pop('username', None)
         return redirect(url_for('routes.login'))

@@ -9,6 +9,7 @@ import json
 auth_cmd_bp = Blueprint('auth_cmd', __name__)
 
 
+# Command line user stored in a JSON file that acts as a dummy database
 def load_dummy_db():
     with open('database/cmdstore.json') as f:
         return json.load(f)
@@ -17,6 +18,7 @@ def load_dummy_db():
 def cmd_token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
+        # Get token from request argument or header
         token = request.args.get('token')
         if 'x-access-token' in request.headers:
             token = request.headers['x-access-token']
@@ -24,6 +26,7 @@ def cmd_token_required(f):
         if not token:
             return jsonify({'message': 'Token is missing!'}), 403
 
+        # Decode the JWT token
         try:
             data = jwt.decode(token, 'crudsecret', algorithms=["HS256"])
             current_user = data['user']
@@ -39,6 +42,8 @@ def cmd_token_required(f):
 
 @auth_cmd_bp.route('/token')
 def get_cmd_token():
+    # Generate JWT Token for the current user
+
     dummy_db = load_dummy_db()
     auth = request.authorization
     # sql = f"""SELECT * FROM USERS WHERE USERNAME ='{auth.username}'"""

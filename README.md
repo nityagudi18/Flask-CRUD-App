@@ -39,6 +39,12 @@ create a profile.Username along with a hashed password is stored in the database
 
 ![127.0.0.1:5000](images/home.PNG)
 
+Amongst the CRUD operations the Read, Update, Delete are protected and hence require a JWT token generated at login. 
+We ceate a WT token at login and pass it to these protected URLS as a part of session headers.
+
+Note: For convenience, I am using the username as the JWT secret key. Also a SECRET key is set up in the app config file
+for the user session   
+
 ##### Create User
 On clicking 'Add User' Button ,we use a pop up form to Input user fields like Id, Name, Age, Occupation, Email and Phone. 
 On submit the user is refected on the user list on home page. In the backend the user is  written to the JSON file 
@@ -67,7 +73,7 @@ without a token
 ##### Token access
 On running the app the JWT token can be accessed with the following command on your browser
 
-```127.0.0.1:5000/auth/token```
+```127.0.0.1:5000/auth_cmd/token```
 
 ![127.0.0.1:5000](images/authorize.PNG)
 
