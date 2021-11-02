@@ -11,6 +11,7 @@ auth_bp = Blueprint('authentication', __name__)
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
+        token = None
         # Token passed as session header
         token = session['api_session_token']
         if 'x-access-token' in request.headers:

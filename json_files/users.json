@@ -15,14 +15,6 @@
             "Occupation": "Doctor",
             "Email": "second@second.com",
             "Phone": "123"
-        },
-        {
-            "Id": "3",
-            "Name": "Third test user",
-            "Age": "33",
-            "Occupation": "Artist",
-            "Email": "third@third",
-            "Phone": "33333"
         }
     ]
 }
